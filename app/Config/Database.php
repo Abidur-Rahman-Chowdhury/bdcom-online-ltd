@@ -56,7 +56,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => '',
+        'database' => 'bdcom',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

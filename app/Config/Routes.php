@@ -28,10 +28,12 @@ $routes->setAutoRoute(true);
  * Route Definitions
  * --------------------------------------------------------------------
  */
-//Frontend
 
-$routes->get('/', 'Home/Home::index');
 
+$routes->get('admin','Admin/Admin::index');
+$routes->add('admin/add-category','Admin/Admin::addCategoryData');
+$routes->add('/admin/category-info','Admin/Admin::showCategory');
+$routes->get('admin/delete-category/(:num)', 'Admin\Admin::deleteCategory/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
