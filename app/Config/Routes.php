@@ -34,6 +34,8 @@ $routes->get('admin','Admin/Admin::index');
 $routes->add('admin/add-category','Admin/Admin::addCategoryData');
 $routes->add('/admin/category-info','Admin/Admin::showCategory');
 $routes->get('admin/delete-category/(:num)', 'Admin\Admin::deleteCategory/$1');
+$routes->add('admin/edit-category/(:num)', 'Admin\Admin::editCategoryData/$1');
+$routes->add('admin/edit-category','Admin\Admin::updateCategory');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
