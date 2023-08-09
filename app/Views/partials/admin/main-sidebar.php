@@ -47,9 +47,15 @@
       
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="add-item" class="nav-link">
+            <a href="/admin/add-item" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Add Item</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/admin/item-info" class="nav-link">
+              <i class="far fa-circle nav-icon"></i>
+              <p>Item Information</p>
             </a>
           </li>
 

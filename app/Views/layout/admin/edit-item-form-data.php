@@ -14,15 +14,23 @@
           <!-- general form elements -->
           <div class="card card-primary">
             <div class="card-header">
-              <h3 class="card-title">Add Item Data</h3>
+              <h3 class="card-title">Edit Item Data</h3>
             </div>
       <?php 
         $categoryOption = '';
         foreach ($category as $key => $value) {
-        
-          $categoryOption.= "<option value=" . $value['id'] . ">" . $value['category_name'] . "</option>";
-          
+          if ($value['id'] == $info[0]['cat_id']) {
+            $categoryOption  .= "<option value=" . $value['id'] . " selected>" . $value['category_name'] . "</option>";
+          } else {
+            $categoryOption  .= "<option value=" . $value['id'] . "selected>" . $value['category_name'] . "</option>";
+          }
         }
+        $option= ''; 
+           if($info[0]['status'] == 'active') {
+            $option .= "<option selected value=" .$info[0]['status'] . ">" . 'Active' . "</option>";
+           } else {
+            $option .= "<option selected value=" .$info[0]['status'] . ">" . 'Deactive' . "</option>";
+           }
       ?>
             <!-- /.card-header -->
             <!-- form start -->
@@ -40,27 +48,27 @@
                 <div class="col-xs-0 col-sm-6 col-md-12" style="text-align:center; color:<?php echo $status; ?>">
                   <b><?php echo $fmsg; ?></b>
                 </div>
-                
+                <input type="hidden" name="id" value="<?= $info[0]['id']?>" id="">
                 <div class="form-group d-flex flex-column">
                   <label for="">Select Category</label>
                       <select name="cat_id" id="">
-                        <option value="">Select Category</option>
                         <?= $categoryOption; ?>
                       </select>
                 </div>
                 <div class="form-group">
                   <label for="categoryName">Title</label>
-                  <input type="text" id="categoryName" name="title" class="form-control"  placeholder="Item Name">
+                  <input type="text" id="categoryName" name="title" class="form-control" value="<?= $info[0]['title']?>"  placeholder="Item Name">
                 </div>
                 <div class="form-group d-flex flex-column">
                   <label for="description">Description</label>
-                  <textarea name="description" placeholder="Description" id="description" cols="20" rows="5"></textarea>
+                  <textarea name="description" placeholder="Description" id="description" cols="20" rows="5"><?= $info[0]['description']?></textarea>
                 
                 </div>
                 <div class="form-group d-flex flex-column ">
                   <label for="status">Status</label>
                  <select name="status" id="status">
-                  <option value="">Select Status</option>
+                 <option value="">Select Status</option>
+                  <?= $option?>
                   <option value="active">Active</option>
                   <option value="deactive">Deactive</option>
                 </select>
